@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "170100457865",
+    "project_id": "studylanguage-f22f0",
+    "storage_bucket": "studylanguage-f22f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170100457865:android:d2b56689740bfe9f5ce158",
+        "android_client_info": {
+          "package_name": "com.example.studywords"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsInyfscub7SWATz1BYWZ00Qq4s3i9Mxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
