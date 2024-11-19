@@ -50,41 +50,67 @@ class IntroSplashActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         auth = FirebaseAuth.getInstance()
 
-        if (auth.getCurrentUser() != null) {
-            val intent = Intent(application, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+        Handler().postDelayed({
+            if (auth.getCurrentUser() != null) {
+                val intent = Intent(application, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            else{
+                constraintLayout.post {
+                    constraintSet.applyTo(constraintLayout)  // 하단 제약 조건을 제거하고 변경 사항 적용
+
+                    // 이미지 뷰를 중간에서 시작하여 위로 15dp 만큼 이동
+                    val middleY = constraintLayout.height / 2f - logoImage.height / 2f
+                    val toYDelta = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15f, resources.displayMetrics)
+                    val toY = -toYDelta
+                    val moveAnimation = TranslateAnimation(0f, 0f, middleY, toY)
+
+
+                    moveAnimation.duration = 500
+                    moveAnimation.fillAfter = true  // 애니메이션이 끝난 위치에서 정지
+                    logoImage.startAnimation(moveAnimation)
+
+                    // 로그인 버튼을 보여주기 위한 애니메이션
+                    loginBtn.visibility = Button.VISIBLE
+                    val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+                    loginBtn.startAnimation(fadeIn)
+                }
+
+            }
+        },3000)
+
 
         loginBtn.setOnClickListener {
             signIn()
         }
 
         // 3초 뒤 애니메이션 시작
-        Handler().postDelayed({
-            constraintLayout.post {
-                constraintSet.applyTo(constraintLayout)  // 하단 제약 조건을 제거하고 변경 사항 적용
-
-                // 이미지 뷰를 중간에서 시작하여 위로 15dp 만큼 이동
-                val middleY = constraintLayout.height / 2f - logoImage.height / 2f
-                val toYDelta = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15f, resources.displayMetrics)
-                val toY = -toYDelta
-                val moveAnimation = TranslateAnimation(0f, 0f, middleY, toY)
-
-
-                moveAnimation.duration = 500
-                moveAnimation.fillAfter = true  // 애니메이션이 끝난 위치에서 정지
-                logoImage.startAnimation(moveAnimation)
-
-                // 로그인 버튼을 보여주기 위한 애니메이션
-                loginBtn.visibility = Button.VISIBLE
-                val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
-                loginBtn.startAnimation(fadeIn)
-            }
-
-
-
-        },3000)
+//        Handler().postDelayed({
+//         constraintLayout.post {
+//                constraintSet.applyTo(constraintLayout)  // 하단 제약 조건을 제거하고 변경 사항 적용
+//
+//                // 이미지 뷰를 중간에서 시작하여 위로 15dp 만큼 이동
+//                val middleY = constraintLayout.height / 2f - logoImage.height / 2f
+//                val toYDelta = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15f, resources.displayMetrics)
+//                val toY = -toYDelta
+//                val moveAnimation = TranslateAnimation(0f, 0f, middleY, toY)
+//
+//
+//                moveAnimation.duration = 500
+//                moveAnimation.fillAfter = true  // 애니메이션이 끝난 위치에서 정지
+//                logoImage.startAnimation(moveAnimation)
+//
+//                // 로그인 버튼을 보여주기 위한 애니메이션
+//                loginBtn.visibility = Button.VISIBLE
+//                val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+//                loginBtn.startAnimation(fadeIn)
+//            }
+//
+//
+//
+//        },3000)
 
 
     }

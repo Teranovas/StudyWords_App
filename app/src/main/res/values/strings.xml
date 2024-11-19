@@ -7,7 +7,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
- .
+    .
     <string name="title_activity_intro">IntroActivity</string>
     <string name="default_web_client_id">firebase-adminsdk-5vrpf@studylanguage-f22f0.iam.gserviceaccount.com</string>
 </resources>
