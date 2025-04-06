@@ -15,6 +15,11 @@
         android:theme="@style/Theme.StudyWords"
         tools:targetApi="31">
         <activity
+            android:name=".community.BoardActivity"
+            android:exported="false"
+            android:label="@string/title_activity_board"
+            android:theme="@style/Theme.StudyWords" />
+        <activity
             android:name=".MainSplashActivity"
             android:exported="false" />
         <activity
@@ -28,7 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
