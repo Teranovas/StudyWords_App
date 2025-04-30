@@ -28,17 +28,7 @@ class BoardActivity : AppCompatActivity() {
         }
 
         // 게시글 작성 버튼 클릭
-        binding.buttonAddPost.setOnClickListener {
-            val title = binding.editTitle.text.toString()
-            val content = binding.editContent.text.toString()
-            if (title.isNotBlank() && content.isNotBlank()) {
-                viewModel.addPost(title, content, "익명")
-                binding.editTitle.text.clear()
-                binding.editContent.text.clear()
-            } else {
-                Toast.makeText(this, "제목과 내용을 입력해주세요", Toast.LENGTH_SHORT).show()
-            }
-        }
+
     }
 }
 
