@@ -11,4 +11,5 @@
     <string name="title_activity_intro">IntroActivity</string>
     <string name="default_web_client_id">firebase-adminsdk-5vrpf@studylanguage-f22f0.iam.gserviceaccount.com</string>
     <string name="title_activity_board">BoardActivity</string>
+    <string name="title_activity_post_detail">PostDetailActivity</string>
 </resources>
