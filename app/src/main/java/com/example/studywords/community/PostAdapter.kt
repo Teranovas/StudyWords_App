@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studywords.databinding.ItemPostBinding
 import java.text.SimpleDateFormat
@@ -12,15 +13,20 @@ import java.util.Locale
 
 
 
-class PostAdapter : androidx.recyclerview.widget.ListAdapter<Post, PostAdapter.PostViewHolder>(PostDiffCallback()) {
+class PostAdapter(
+    private val onClick: (Post) -> Unit
+) : ListAdapter<Post, PostAdapter.PostViewHolder>(PostDiffCallback()) {
 
-    class PostViewHolder(private val binding: ItemPostBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class PostViewHolder(private val binding: ItemPostBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(post: Post) {
             binding.textTitle.text = post.title
             binding.textContent.text = post.content
             binding.textAuthor.text = post.author
-            binding.textTime.text = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
-                .format(Date(post.timestamp))
+
+            binding.root.setOnClickListener {
+                onClick(post) // ✅ 클릭 콜백 실행
+            }
         }
     }
 

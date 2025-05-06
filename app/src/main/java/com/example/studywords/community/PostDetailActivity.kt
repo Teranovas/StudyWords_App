@@ -2,6 +2,7 @@ package com.example.studywords.community
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.studywords.R
@@ -20,7 +21,13 @@ class PostDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val postId = intent.getStringExtra("postId") ?: return
-        viewModel = ViewModelProvider(this, PostDetailViewModelFactory(postId))[PostDetailViewModel::class.java]
+        viewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return PostDetailViewModel(postId) as T
+            }
+        })[PostDetailViewModel::class.java]
+
+
 
         adapter = CommentAdapter()
         binding.recyclerComments.layoutManager = LinearLayoutManager(this)
