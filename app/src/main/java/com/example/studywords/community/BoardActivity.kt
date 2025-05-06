@@ -27,6 +27,8 @@ class BoardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnBack.setOnClickListener { finish() }
+
         binding.recyclerPosts.adapter = adapter
         binding.recyclerPosts.layoutManager = LinearLayoutManager(this)
 
