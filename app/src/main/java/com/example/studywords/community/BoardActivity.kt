@@ -2,11 +2,15 @@ package com.example.studywords.community
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.studywords.R
 import com.example.studywords.databinding.ActivityBoardBinding
 
 class BoardActivity : AppCompatActivity() {
@@ -14,6 +18,8 @@ class BoardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBoardBinding
     private val viewModel: PostViewModel by viewModels()
 //    private val adapter = PostAdapter()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +34,20 @@ class BoardActivity : AppCompatActivity() {
         }
 
         binding.btnBack.setOnClickListener { finish() }
+
+        val writeBtn = findViewById<ImageButton>(R.id.writeBtn)
+
+        writeBtn.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, WritePostActivity::class.java)
+            startActivity(intent)
+            true
+        })
+//        writ
+//        -> {
+//            val intent = Intent(this, WritePostActivity::class.java)
+//            startActivity(intent)
+//            true
+//        }
 
         binding.recyclerPosts.adapter = adapter
         binding.recyclerPosts.layoutManager = LinearLayoutManager(this)

@@ -103,11 +103,13 @@
         android:layout_marginTop="8dp" />
 
     <!-- 댓글 등록 버튼 -->
-    <Button
+    <android.widget.Button
         android:id="@+id/buttonSendComment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="등록"
+        android:textStyle="bold|bold"
+        android:background="@drawable/round"
         app:layout_constraintTop_toBottomOf="@id/editComment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

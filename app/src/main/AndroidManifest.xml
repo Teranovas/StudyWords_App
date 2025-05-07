@@ -15,6 +15,9 @@
         android:theme="@style/Theme.StudyWords"
         tools:targetApi="31">
         <activity
+            android:name=".community.WritePostActivity"
+            android:exported="false" />
+        <activity
             android:name=".community.PostDetailActivity"
             android:exported="false"
             android:label="@string/title_activity_post_detail"

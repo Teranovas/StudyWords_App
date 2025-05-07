@@ -31,49 +31,42 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <android.widget.Button
+            android:id="@+id/writeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="글 쓰기"
+            android:textStyle="bold|bold"
+            android:textSize="15dp"
+            android:background="@drawable/round"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <!-- 아래: RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerPosts"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <!-- 위: 글쓰기 버튼 (오른쪽 아래 겹침) -->
-        <ImageButton
-            android:id="@+id/writeBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_add"
-            android:textStyle="bold"
-            android:background="@null"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp" />
-    </FrameLayout>
-
-
-    <!--<EditText
+    <EditText
         android:id="@+id/editTitle"
+        android:hint="제목"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="제목" />
+        app:layout_constraintTop_toBottomOf="@id/writeBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
 
+    <!-- 내용 입력 -->
     <EditText
         android:id="@+id/editContent"
+        android:hint="내용"
+        android:minLines="10"
+        android:gravity="top|start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="내용" />
-
-    <Button
-        android:id="@+id/buttonAddPost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="게시글 작성" />-->
+        app:layout_constraintTop_toBottomOf="@id/editTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
 </LinearLayout>
