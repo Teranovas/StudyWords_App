@@ -8,4 +8,4 @@
     <style name="Theme.StudyWords" parent="Base.Theme.StudyWords" />
 </resources>
 
-<!--    parent="Theme.Material3.DayNight.NoActionBar"-->
+    <!--    parent="Theme.Material3.DayNight.NoActionBar"-->
