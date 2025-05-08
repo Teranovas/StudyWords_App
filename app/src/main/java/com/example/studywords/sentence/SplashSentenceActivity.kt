@@ -2,7 +2,10 @@ package com.example.studywords.sentence
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +19,7 @@ class SplashSentenceActivity : AppCompatActivity() {
     private lateinit var nextButton: Button
     private var clickStage = 0 // 클릭 단계 추적
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_sentence)
@@ -23,6 +27,11 @@ class SplashSentenceActivity : AppCompatActivity() {
         sentence1 = findViewById(R.id.sentence1)
         sentence2 = findViewById(R.id.sentence2)
         nextButton = findViewById(R.id.nextButton)
+
+        val btnback = findViewById<ImageView>(R.id.btnBack)
+        btnback.setOnClickListener(View.OnClickListener {
+            finish()
+        })
 
         // 첫 문장 애니메이션 표시
         sentence1.animate().alpha(1f).setDuration(1000).start()
@@ -43,6 +52,8 @@ class SplashSentenceActivity : AppCompatActivity() {
                     clickStage++
                 }
                 1 -> {
+                    nextButton.visibility = View.VISIBLE // 보이게 하고
+                    nextButton.alpha = 0f                 // 처음엔 투명하게 시작
                     nextButton.animate().alpha(1f).setDuration(1000).start()
                     clickStage++
                 }

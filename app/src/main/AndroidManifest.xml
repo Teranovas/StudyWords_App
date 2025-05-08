@@ -36,9 +36,6 @@
             android:label="@string/title_activity_board"
             android:theme="@style/Theme.StudyWords" />
         <activity
-            android:name=".MainSplashActivity"
-            android:exported="false" />
-        <activity
             android:name=".IntroSplashActivity"
             android:exported="true"
             android:label="@string/title_activity_intro_splash"
