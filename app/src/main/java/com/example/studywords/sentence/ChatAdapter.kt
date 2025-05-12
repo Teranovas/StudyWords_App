@@ -3,11 +3,15 @@ package com.example.studywords.sentence
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studywords.R
 
-class ChatAdapter(private var messages: List<ChatMessage>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ChatAdapter(
+    private var messages: List<ChatMessage>,
+    private val onSpeakClick: (String) -> Unit) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         private const val TYPE_USER = 0
@@ -51,5 +55,6 @@ class ChatAdapter(private var messages: List<ChatMessage>) : RecyclerView.Adapte
 
     inner class BotViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val messageText: TextView = view.findViewById(R.id.messageText)
+        val btnSpeak: ImageView = view.findViewById(R.id.btnSpeak)
     }
 }
