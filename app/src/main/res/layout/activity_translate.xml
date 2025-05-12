@@ -1,38 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".TranslateActivity">
+    android:background="#F9F9FB">
 
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="번역기"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBack"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack" />
+
+    <!-- 출발 언어 -->
     <Spinner
         android:id="@+id/sourceSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/swapButton" />
 
+    <ImageView
+        android:id="@+id/swapButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_arrow"
+        app:layout_constraintTop_toTopOf="@+id/sourceSpinner"
+        app:layout_constraintBottom_toBottomOf="@+id/sourceSpinner"
+        app:layout_constraintStart_toEndOf="@+id/sourceSpinner"
+        app:layout_constraintEnd_toStartOf="@+id/targetSpinner"
+        android:layout_marginHorizontal="8dp" />
+
+    <!-- 목표 언어 -->
     <Spinner
         android:id="@+id/targetSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@+id/sourceSpinner"
+        app:layout_constraintStart_toEndOf="@+id/swapButton"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- 입력 영역 -->
     <EditText
         android:id="@+id/inputText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="번역할 문장 입력" />
+        android:hint="입력, 말하기 또는 사진 촬영"
+        android:textSize="18sp"
+        android:background="@android:color/transparent"
+        android:textColor="#444"
+        android:minHeight="120dp"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/targetSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnTranslate"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="번역" />
+        android:layout_margin="8dp"
+        android:text="번역"
+        app:layout_constraintTop_toBottomOf="@+id/inputText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- 출력 영역 -->
     <TextView
         android:id="@+id/outputText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:textSize="18sp" />
-</LinearLayout>
+        android:text="번역"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:background="#F1F1F1"
+        android:padding="16dp"
+        android:minHeight="100dp"
+        android:gravity="top"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnTranslate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 마이크 아이콘 -->
+    <ImageView
+        android:id="@+id/micIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_volume"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/outputText"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

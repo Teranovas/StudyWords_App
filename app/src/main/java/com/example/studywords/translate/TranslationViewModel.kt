@@ -14,7 +14,12 @@ class TranslationViewModel : ViewModel() {
     val translatedText: LiveData<String> get() = _translatedText
 
     fun translateText(input: String, sourceLang: String, targetLang: String) {
-        val prompt = "Translate the following text from $sourceLang to $targetLang: $input"
+        val prompt = if (sourceLang == targetLang) {
+            "Explain or paraphrase the word \"$input\" in $targetLang. Give a simple version."
+        } else {
+            "Translate the word \"$input\" from $sourceLang to $targetLang. Only return the result."
+        }
+
         viewModelScope.launch(Dispatchers.IO) {
             val fullResponse = ChatGPTService.sendMessage(prompt)
             val coreResult = extractTranslation(fullResponse)
@@ -27,7 +32,6 @@ class TranslationViewModel : ViewModel() {
     private fun extractTranslation(response: String?): String? {
         if (response == null) return null
 
-        // 1. 큰따옴표 안의 외국어 추출
         val quoteRegex = Regex("\"([^\"]+)\"")
         val match = quoteRegex.find(response)
         return match?.groups?.get(1)?.value ?: response.trim()
