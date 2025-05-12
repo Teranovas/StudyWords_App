@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F9F9FB">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사전"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Spinner
+        android:id="@+id/targetSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="단어를 입력하세요"
+        android:textSize="18sp"
+        android:background="@android:color/transparent"
+        android:textColor="#444"
+        android:minHeight="60dp"
+        android:gravity="start"
+        android:inputType="text"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/targetSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="검색"
+        app:layout_constraintTop_toBottomOf="@id/inputText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/outputText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="정의가 여기에 표시됩니다."
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:background="#F1F1F1"
+        android:padding="16dp"
+        android:minHeight="100dp"
+        android:textDirection="locale"
+        android:textAlignment="viewStart"
+        app:layout_constraintTop_toBottomOf="@id/btnSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <ImageView
+        android:id="@+id/micIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_volume"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@id/outputText"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
