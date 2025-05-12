@@ -7,6 +7,7 @@ import android.view.View
 import androidx.cardview.widget.CardView
 import com.example.studywords.community.BoardActivity
 import com.example.studywords.sentence.SplashSentenceActivity
+import com.example.studywords.translate.TranslateActivity
 import com.example.studywords.word.WordChainActivity
 
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var communityBtn : CardView
     lateinit var sentenceBtn : CardView
     lateinit var wordBtn : CardView
+    lateinit var translateBtn : CardView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,6 +41,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         })
+
+        translateBtn = findViewById(R.id.translationCard)
+        translateBtn.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, TranslateActivity::class.java)
+            startActivity(intent)
+
+        })
+
 
     }
 }

@@ -15,6 +15,9 @@
         android:theme="@style/Theme.StudyWords"
         tools:targetApi="31">
         <activity
+            android:name=".translate.TranslateActivity"
+            android:exported="false" />
+        <activity
             android:name=".word.WordChainActivity"
             android:exported="false"
             android:label="@string/title_activity_word_chain"
