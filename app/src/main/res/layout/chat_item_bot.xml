@@ -20,5 +20,5 @@
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_volume"
-        android:contentDescription="발음 듣기"
+        android:contentDescription="발음 듣기"/>
 </LinearLayout>

@@ -39,6 +39,10 @@ class ChatAdapter(
             holder.messageText.text = message.text
         } else if (holder is BotViewHolder) {
             holder.messageText.text = message.text
+            holder.btnSpeak.setOnClickListener { onSpeakClick(
+                message.text
+            ) }
+
         }
     }
 

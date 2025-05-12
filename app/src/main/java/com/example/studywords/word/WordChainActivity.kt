@@ -3,6 +3,7 @@ package com.example.studywords.word
 import WordAdapter
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.snackbar.Snackbar
@@ -26,21 +27,27 @@ class WordChainActivity : AppCompatActivity() {
     private val viewModel: WordViewModel by viewModels()
     private lateinit var adapter: WordAdapter
     private lateinit var tts: TextToSpeech
+    private lateinit var btnBack: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWordChainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = WordAdapter(emptyList()) { speakWord(it) }
-        binding.rvWord.layoutManager = LinearLayoutManager(this)
-        binding.rvWord.adapter = adapter
-
         tts = TextToSpeech(this) { status ->
             if (status != TextToSpeech.ERROR) {
                 tts.language = Locale.US
             }
         }
+        btnBack = findViewById(R.id.btnBack)
+
+        btnBack.setOnClickListener {
+            finish()
+        }
+
+        adapter = WordAdapter(emptyList()) { speakWord(it) }
+        binding.rvWord.layoutManager = LinearLayoutManager(this)
+        binding.rvWord.adapter = adapter
 
         binding.btnSend.setOnClickListener {
             val inputWord = binding.etInput.text.toString().trim()
