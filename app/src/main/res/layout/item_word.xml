@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/gptBubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bot_message"
+        android:textColor="#fff"
+        android:padding="12dp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/btnSpeak"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_volume"
+        android:contentDescription="발음 듣기"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/userBubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_user_message"
+        android:textColor="#000"
+        android:padding="12dp"
+        android:visibility="gone"/>
+
+</LinearLayout>
