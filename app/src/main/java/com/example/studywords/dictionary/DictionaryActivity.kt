@@ -15,7 +15,6 @@ class DictionaryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDictionaryBinding
     private val viewModel: DictionaryViewModel by viewModels<DictionaryViewModel>()
-
     private lateinit var tts: TextToSpeech
 
     private val languageMap = mapOf(
@@ -53,13 +52,13 @@ class DictionaryActivity : AppCompatActivity() {
         })
 
         binding.micIcon.setOnClickListener {
-            val text = binding.outputText.text.toString()
+            val wordToSpeak = binding.inputText.text.toString()
             val lang = binding.targetSpinner.selectedItem.toString()
             val locale = languageMap[lang] ?: Locale.ENGLISH
 
             if (tts.isLanguageAvailable(locale) >= TextToSpeech.LANG_AVAILABLE) {
                 tts.language = locale
-                tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
+                tts.speak(wordToSpeak, TextToSpeech.QUEUE_FLUSH, null, null)
             } else {
                 Toast.makeText(this, "해당 언어는 음성 출력을 지원하지 않습니다.", Toast.LENGTH_SHORT).show()
             }
