@@ -3,22 +3,32 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
 }
+import java.util.Properties
+import java.io.FileInputStream
+
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
     namespace 'com.example.studywords'
     compileSdk 35
 
     defaultConfig {
+        buildConfigField "String", "OPENAI_API_KEY", "\"${localProperties.getProperty("openai.api.key")}\""
+
+
         applicationId "com.example.studywords"
         minSdk 27
         targetSdk 35
         versionCode 1
         versionName "1.0"
 
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
         }
+
     }
 
     buildTypes {
@@ -38,6 +48,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        buildConfig = true
         compose true
     }
     composeOptions {

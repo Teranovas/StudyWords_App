@@ -1,6 +1,8 @@
 buildscript {
     dependencies {
         classpath 'com.google.gms:google-services:4.4.2'
+        classpath 'com.android.tools.build:gradle:8.1.0'// 최신 버전 (2025년 5월 기준)
+
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {

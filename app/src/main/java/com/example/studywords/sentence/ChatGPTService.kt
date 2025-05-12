@@ -2,6 +2,8 @@ package com.example.studywords.sentence
 
 import android.telecom.Call
 import com.google.android.gms.common.api.Response
+import com.example.studywords.BuildConfig
+
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -12,7 +14,7 @@ import java.io.IOException
 import javax.security.auth.callback.Callback
 
 object ChatGPTService {
-    private const val API_KEY = "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"
+    val API_KEY = BuildConfig.OPENAI_API_KEY
     private const val API_URL = "https://api.openai.com/v1/chat/completions"
 
     fun sendMessage(prompt: String): String? {
@@ -51,3 +53,5 @@ object ChatGPTService {
         }
     }
 }
+
+
