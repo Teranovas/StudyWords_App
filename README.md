@@ -1,3 +1,5 @@
+<center><img src="/drawable/img2.png" width="100%" height="100%"></center>
+
 # 세가언 - Chat GPT를 이용한 개인 프로젝트 앱
 
 
