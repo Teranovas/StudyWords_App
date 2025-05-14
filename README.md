@@ -1,5 +1,4 @@
-![세가언포스터]
-
+![Image](https://github.com/user-attachments/assets/9db8ce98-ccfd-4caa-b53e-f89a5f2ef1cb)
 # 세가언 - Chat GPT를 이용한 개인 프로젝트 앱
 
 
