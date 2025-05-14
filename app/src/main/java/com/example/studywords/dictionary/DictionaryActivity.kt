@@ -41,6 +41,8 @@ class DictionaryActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnBack.setOnClickListener { finish() }
+
         binding.btnSearch.setOnClickListener {
             val word = binding.inputText.text.toString()
             val targetLang = binding.targetSpinner.selectedItem.toString()

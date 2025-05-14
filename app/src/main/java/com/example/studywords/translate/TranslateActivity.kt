@@ -45,6 +45,8 @@ class TranslateActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnBack.setOnClickListener { finish() }
+
         // 번역 버튼 클릭 시
         binding.btnTranslate.setOnClickListener {
             val source = binding.sourceSpinner.selectedItem.toString()
